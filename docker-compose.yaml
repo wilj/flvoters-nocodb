@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  
+  flvoters:
+    build: ./dolt
+    environment:
+      - OWNER=wilj
+      - REPOSITORY=flvoters
+
+  nocodb:
+    depends_on:
+     - flvoters
+    build: ./nocodb
+    ports:
+      - "8080:8080"
